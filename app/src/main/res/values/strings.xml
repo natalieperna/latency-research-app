@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">Research Study</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="practiceTitle">Practice Mode</string>
+    <string name="practiceInstructions">Scribble around and get used to the device.</string>
+    <string name="startButton">Start Test ❯</string>
 
 </resources>
