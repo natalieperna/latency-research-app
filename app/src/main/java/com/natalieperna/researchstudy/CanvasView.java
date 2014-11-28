@@ -9,6 +9,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import java.util.ArrayList;
+
 public class CanvasView extends View {
 
     private Path path;
@@ -16,9 +18,12 @@ public class CanvasView extends View {
     private int paintColor = Color.RED;
     private int brushSize = 10;
 
+    ArrayList<Point> points;
+
     public CanvasView(Context context, AttributeSet attrs) {
         super(context, attrs);
         setupCanvas();
+        points = new ArrayList<Point>;
     }
 
     private void setupCanvas() {
@@ -42,6 +47,8 @@ public class CanvasView extends View {
         float x = event.getX();
         float y = event.getY();
 
+        points.add(new Point(x, y));
+
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 path.moveTo(x, y);
@@ -60,7 +67,12 @@ public class CanvasView extends View {
     }
 
     public void clear() {
+        points.clear();
         path.reset();
         invalidate();
+    }
+
+    public ArrayList<Point> getPoints() {
+        return points;
     }
 }

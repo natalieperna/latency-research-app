@@ -17,6 +17,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button button;
     private TextView titleView, textView;
 
+    private Results results;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +34,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         titleView = (TextView) findViewById(R.id.titleView);
         textView = (TextView) findViewById(R.id.textView);
 
+
+        results = new Results();
     }
 
     private void goToNext() {
+
         canvas.clear();
         if (test == 0) { // Practice
             test++;
@@ -55,7 +60,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     .setMessage("Thank you for participating in the study. Please return the device to the researcher.")
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            // Do something
+                            results.save();
                         }
                     })
                     .show();
