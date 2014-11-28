@@ -29,6 +29,15 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <View
+        android:id="@+id/circle"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:background="@drawable/circle"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible" />
+
     <com.natalieperna.researchstudy.CanvasView
         android:id="@+id/canvas"
         android:background="@drawable/frame"
