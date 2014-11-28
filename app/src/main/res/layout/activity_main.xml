@@ -26,7 +26,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <!-- -->
+    <com.natalieperna.researchstudy.CanvasView
+        android:id="@+id/canvas"
+        android:background="@drawable/frame"
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
