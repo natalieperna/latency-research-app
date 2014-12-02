@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -6,19 +7,17 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:windowSoftInputMode="adjustResize"
-    tools:context=".MainActivity">
+    tools:context=".SurveyActivity">
 
     <TextView
         android:id="@+id/titleView"
+        style="@style/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="Questionnaire"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="36sp" />
+        android:text="@string/titleQuestionnaire" />
 
     <LinearLayout
         android:id="@+id/genderForm"
@@ -30,12 +29,11 @@
         android:orientation="vertical"
         android:paddingTop="@dimen/activity_vertical_margin">
 
-
         <TextView
+            style="@style/label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gender:"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/labelGender" />
 
         <RadioGroup
             android:layout_width="fill_parent"
@@ -46,23 +44,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="Male" />
+                android:text="@string/labelGenderMale" />
 
             <RadioButton
                 android:id="@+id/genderFemale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:text="Female" />
+                android:text="@string/labelGenderFemale" />
 
             <RadioButton
                 android:id="@+id/genderOther"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:text="Other/Prefer not to say" />
+                android:text="@string/labelGenderOther" />
         </RadioGroup>
-
     </LinearLayout>
 
     <LinearLayout
@@ -77,10 +74,10 @@
 
 
         <TextView
+            style="@style/label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Handedness:"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/labelHandedness" />
 
         <RadioGroup
             android:layout_width="fill_parent"
@@ -91,23 +88,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="Right" />
+                android:text="@string/labelHandednessRight" />
 
             <RadioButton
                 android:id="@+id/handednessLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:text="Left" />
+                android:text="@string/labelHandednessLeft" />
 
             <RadioButton
                 android:id="@+id/handednessOther"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:text="Other/Prefer not to say" />
+                android:text="@string/labelHandednessOther" />
         </RadioGroup>
-
     </LinearLayout>
 
     <LinearLayout
@@ -121,11 +117,10 @@
         android:paddingTop="@dimen/activity_vertical_margin">
 
         <TextView
+            style="@style/label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:text="Age:"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/labelAge" />
 
         <EditText
             android:id="@+id/age"
@@ -133,20 +128,19 @@
             android:layout_height="wrap_content"
             android:ems="3"
             android:inputType="number" />
-
     </LinearLayout>
 
     <Button
         android:id="@+id/button"
+        style="@style/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/linearLayout"
-        android:minHeight="75dp"
-        android:minWidth="200dp"
-        android:text="Practice ❯"
-        android:textSize="20sp"
-        android:onClick="goToPractice"/>
+        android:minHeight="@dimen/buttonHeight"
+        android:minWidth="@dimen/buttonWidth"
+        android:onClick="goToPractice"
+        android:text="@string/buttonPractice" />
 
 </RelativeLayout>

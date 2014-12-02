@@ -3,7 +3,7 @@ package com.natalieperna.researchstudy;
 /**
  * Represents a drawing coordinate (x, y) and the time, t, that it was collected
  */
-public class TimePoint {
+class TimePoint {
     float x, y; // Coordinate
     long t; // Time at that position
 

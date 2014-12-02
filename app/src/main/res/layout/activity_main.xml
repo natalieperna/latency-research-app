@@ -1,60 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/titleView"
+        style="@style/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="36sp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/practiceTitle"
-        android:id="@+id/titleView"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/practiceTitle" />
 
     <TextView
+        android:id="@+id/textView"
+        style="@style/instructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/practiceInstructions"
-        android:id="@+id/textView"
-        android:layout_below="@+id/titleView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/titleView"
+        android:text="@string/practiceInstructions" />
 
     <View
         android:id="@+id/circle"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:background="@drawable/circle"
-        android:layout_centerVertical="true"
+        android:layout_width="@dimen/circleSize"
+        android:layout_height="@dimen/circleSize"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/circle"
         android:visibility="invisible" />
 
     <com.natalieperna.researchstudy.CanvasView
         android:id="@+id/canvas"
-        android:background="@drawable/frame"
-        android:layout_width="600dp"
-        android:layout_height="600dp"
+        android:layout_width="@dimen/canvasWidth"
+        android:layout_height="@dimen/canvasHeight"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:background="@drawable/frame" />
 
     <Button
+        android:id="@+id/button"
+        style="@style/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/startButton"
-        android:textSize="20sp"
-        android:minHeight="75dp"
-        android:minWidth="200dp"
-        android:id="@+id/button"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:minHeight="@dimen/buttonHeight"
+        android:minWidth="@dimen/buttonWidth"
+        android:text="@string/startButton" />
 </RelativeLayout>

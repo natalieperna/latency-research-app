@@ -21,25 +21,29 @@ public class SurveyActivity extends Activity {
         int age;
 
         // Get gender from radio buttons
-        if (((RadioButton)findViewById(R.id.genderFemale)).isChecked()) {
+        if (((RadioButton) findViewById(R.id.genderFemale)).isChecked()) {
             gender = 'F';
-        } else if (((RadioButton)findViewById(R.id.genderMale)).isChecked()) {
+        } else if (((RadioButton) findViewById(R.id.genderMale)).isChecked()) {
             gender = 'M';
         } else {
             gender = 'O';
         }
 
         // Get handedness from radio buttons
-        if (((RadioButton)findViewById(R.id.handednessLeft)).isChecked()) {
+        if (((RadioButton) findViewById(R.id.handednessLeft)).isChecked()) {
             handedness = 'L';
-        } else if (((RadioButton)findViewById(R.id.handednessRight)).isChecked()) {
+        } else if (((RadioButton) findViewById(R.id.handednessRight)).isChecked()) {
             handedness = 'R';
         } else {
             handedness = 'O';
         }
 
         // Get age from input
-        age = Integer.parseInt(((EditText)findViewById(R.id.age)).getText().toString());
+        try {
+            age = Integer.parseInt(((EditText) findViewById(R.id.age)).getText().toString());
+        } catch (NumberFormatException e) {
+            age = -1;
+        }
 
         // Switch to main activity and pass survey results
         Intent intent = new Intent(this, MainActivity.class);

@@ -1,8 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar" />
+
+    <style name="title" parent="android:TextAppearance">
+        <item name="android:textSize">36sp</item>
     </style>
 
+    <style name="instructions" parent="android:TextAppearance">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="button">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="label" parent="android:TextAppearance">
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>

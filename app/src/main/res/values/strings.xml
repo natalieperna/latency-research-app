@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Research Study</string>
     <string name="practiceTitle">Practice Mode</string>
     <string name="practiceInstructions">Scribble around and get used to the device.</string>
     <string name="startButton">Start Test ❯</string>
-
+    <string name="titleQuestionnaire">Questionnaire</string>
+    <string name="labelGender">Gender:</string>
+    <string name="labelGenderMale">Male</string>
+    <string name="labelGenderFemale">Female</string>
+    <string name="labelGenderOther">Other/Prefer not to say</string>
+    <string name="labelHandedness">Handedness:</string>
+    <string name="labelHandednessRight">Right</string>
+    <string name="labelHandednessLeft">Left</string>
+    <string name="labelHandednessOther">Other/Prefer not to say</string>
+    <string name="labelAge">Age:</string>
+    <string name="buttonPractice">Practice ❯</string>
 </resources>

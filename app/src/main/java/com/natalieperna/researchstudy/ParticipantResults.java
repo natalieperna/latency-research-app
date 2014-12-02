@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
-public class ParticipantResults {
-    private String id;
-    private File file;
+class ParticipantResults {
     public char gender, handedness;
     public int age;
     public ArrayList<TestResults> tests;
+    private String id;
+    private File file;
 
     public ParticipantResults() {
         id = UUID.randomUUID().toString();

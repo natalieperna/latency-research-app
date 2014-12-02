@@ -20,8 +20,6 @@ public class CanvasView extends View {
 
     private Path path;
     private Paint paint;
-    private int paintColor = Color.RED;
-    private int brushSize = 10;
     private Queue<TimePoint> queue;
     private TestResults test;
 
@@ -35,6 +33,9 @@ public class CanvasView extends View {
      * Prepare the canvas for drawing with an empty path, brush size, colour, etc.
      */
     private void setupCanvas() {
+        int paintColor = Color.RED;
+        int brushSize = 10;
+
         path = new Path();
         paint = new Paint();
         paint.setColor(paintColor);
@@ -145,6 +146,10 @@ public class CanvasView extends View {
         }, 0, 100);
     }
 
+    public TestResults getTest() {
+        return test;
+    }
+
     /**
      * Comparator class for PriorityQueue
      */
@@ -159,9 +164,5 @@ public class CanvasView extends View {
                 return 0;
             }
         }
-    }
-
-    public TestResults getTest() {
-        return test;
     }
 }
