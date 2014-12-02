@@ -14,6 +14,8 @@ import java.util.UUID;
 public class ParticipantResults {
     private String id;
     private File file;
+    public char gender, handedness;
+    public int age;
     public ArrayList<TestResults> tests;
 
     public ParticipantResults() {
@@ -29,7 +31,11 @@ public class ParticipantResults {
             FileOutputStream fos = new FileOutputStream(file);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
             osw.write("ID: " + id + "\n");
-            osw.write("Time: " + new Date() + "\n\n");
+            osw.write("Time: " + new Date() + "\n");
+            osw.write("Gender: " + gender + "\n");
+            osw.write("Handedness: " + handedness + "\n");
+            osw.write("Age: " + age + "\n");
+            osw.write("\n");
             for (TestResults test : tests) {
                 osw.write("Test #" + test.test + "\n");
                 osw.write("Lag: " + test.lag + "ms \n");

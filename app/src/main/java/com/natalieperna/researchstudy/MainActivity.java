@@ -3,6 +3,7 @@ package com.natalieperna.researchstudy;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent intent = getIntent();
+
         canvas = (CanvasView) findViewById(R.id.canvas);
 
         circle = findViewById(R.id.circle);
@@ -54,6 +57,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Collections.shuffle(trials);
 
         results = new ParticipantResults();
+        results.gender = intent.getCharExtra("gender", 'X');
+        results.handedness = intent.getCharExtra("handedness", 'X');
+        results.age = intent.getIntExtra("age", 0);
     }
 
     private void goToNext() {
@@ -70,9 +76,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             results.save();
-                            // Close app
-                            finish();
-                            System.exit(0);
+                            restart();
                         }
                     })
                     .show();
@@ -94,5 +98,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         else
             button.setText("Finish");
         circle.setVisibility(View.VISIBLE);
+    }
+
+    private void restart() {
+        Intent intent = new Intent(this, SurveyActivity.class);
+        startActivity(intent);
     }
 }
