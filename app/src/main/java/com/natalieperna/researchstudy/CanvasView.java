@@ -22,10 +22,8 @@ public class CanvasView extends View {
     private Paint paint;
     private int paintColor = Color.RED;
     private int brushSize = 10;
-    private long start;
-    private long end;
-    private long lag = 500;
     private Queue<TimePoint> queue;
+    private TestResults test;
 
     public CanvasView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -53,6 +51,18 @@ public class CanvasView extends View {
     private void setupQueue() {
         Comparator<TimePoint> comparator = new TimePointComparator();
         queue = new PriorityQueue<TimePoint>(10, comparator);
+
+        test = new TestResults();
+    }
+
+    /**
+     * Start a new test
+     */
+    public void newTest(int test, int lag) {
+        path.reset();
+        queue.clear(); // just in case
+        invalidate();
+        this.test = new TestResults(test, lag);
     }
 
     @Override
@@ -66,11 +76,13 @@ public class CanvasView extends View {
         float y = event.getY();
         long now = SystemClock.uptimeMillis();
 
+        test.path.add(new TimePoint(x, y, now));
+
         switch (event.getAction()) {
             // To start a new path, move brush to first position
             case MotionEvent.ACTION_DOWN:
                 path.moveTo(x, y);
-                start = now;
+                test.start = now;
                 break;
             // When new points are collected, queue them for drawing later
             // Draw any points on the queue for more than lag ms
@@ -80,7 +92,7 @@ public class CanvasView extends View {
                 break;
             // When path is done, finish drawing the remaining points
             case MotionEvent.ACTION_UP:
-                end = now;
+                test.end = now;
                 finishDrawing();
                 break;
             default:
@@ -91,21 +103,13 @@ public class CanvasView extends View {
     }
 
     /**
-     * Clear the path and canvas
-     */
-    public void clear() {
-        path.reset();
-        queue.clear(); // just in case
-        invalidate();
-    }
-
-    /**
      * Dequeue and draw any points that were entered at least lag ms ago
+     *
      * @param now the current system time
      */
     private void delayedDraw(long now) {
         TimePoint toDraw = queue.peek();
-        while (toDraw != null && now - toDraw.t >= lag) {
+        while (toDraw != null && now - toDraw.t >= test.lag) {
             path.lineTo(toDraw.x, toDraw.y);
             queue.remove();
             toDraw = queue.peek();
@@ -142,21 +146,6 @@ public class CanvasView extends View {
     }
 
     /**
-     * Represents a drawing coordinate (x, y) and the time, t, that it was collected
-     */
-    private class TimePoint {
-        float x, y; // Coordinate
-        long t; // Time at that position
-
-        TimePoint(float x, float y, long t) {
-            this.x = x;
-            this.y = y;
-            this.t = t;
-        }
-    }
-
-
-    /**
      * Comparator class for PriorityQueue
      */
     private class TimePointComparator implements Comparator<TimePoint> {
@@ -170,5 +159,9 @@ public class CanvasView extends View {
                 return 0;
             }
         }
+    }
+
+    public TestResults getTest() {
+        return test;
     }
 }
