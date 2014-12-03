@@ -83,7 +83,8 @@ public class CanvasView extends View {
             // To start a new path, move brush to first position
             case MotionEvent.ACTION_DOWN:
                 path.moveTo(x, y);
-                test.start = now;
+                if (test.start == 0) // Only set start time once at very beginning
+                    test.start = now;
                 break;
             // When new points are collected, queue them for drawing later
             // Draw any points on the queue for more than lag ms
