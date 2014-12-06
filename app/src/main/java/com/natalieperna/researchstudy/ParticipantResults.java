@@ -39,11 +39,10 @@ class ParticipantResults {
             for (TestResults test : tests) {
                 osw.write("Test #" + test.test + "\n");
                 osw.write("Lag: " + test.lag + "ms \n");
-                osw.write("Start: " + test.start + "ms \n");
-                osw.write("End: " + test.end + "ms \n");
+                osw.write("Time: " + (test.end - test.start) + "ms \n");
                 osw.write("Path:\n");
                 for (TimePoint point : test.path) {
-                    osw.write("(" + point.x + ", " + point.y + ") @ " + point.t + "\n");
+                    osw.write("T" + test.test + " L" + test.lag + " (" + point.x + ", " + point.y + ") @ " + point.t + "\n");
                 }
                 osw.write("\n");
             }
