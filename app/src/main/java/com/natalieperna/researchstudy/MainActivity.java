@@ -48,7 +48,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         // Randomize lag order
         trials = Arrays.asList(
                 0, 0, 0, 0, 0,
-                25, 25, 25, 25, 25,
                 50, 50, 50, 50, 50,
                 100, 100, 100, 100, 100,
                 250, 250, 250, 250, 250,
