@@ -82,12 +82,22 @@ public class Main {
 		double accuracyPValue = TestUtils.oneWayAnovaPValue(accuracies);
 
 		System.out.println("TIME:");
+		System.out.println("0\t 50\t 100\t 250\t 500ms");
+		for (int i = 0; i < trials; i++) {
+			System.out.printf("%.0f\t %.0f\t %.0f\t %.0f\t %.0f%n", time0[i], time50[i],
+					time100[i], time250[i], time500[i]);
+		}
 		System.out.println("F = " + timeFStatistic);
 		System.out.println("p = " + timePValue);
 
 		System.out.println();
 
 		System.out.println("ACCURACY:");
+		System.out.println("0\t 50\t 100\t 250\t 500ms");
+		for (int i = 0; i < trials; i++) {
+			System.out.printf("%.5f\t %.5f\t %.5f\t %.5f\t %.5f%n", accuracy0[i], accuracy50[i],
+					accuracy100[i], accuracy250[i], accuracy500[i]);
+		}
 		System.out.println("F = " + accuracyFStatistic);
 		System.out.println("p = " + accuracyPValue);
 
