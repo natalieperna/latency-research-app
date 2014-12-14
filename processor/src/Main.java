@@ -1,17 +1,21 @@
-import java.io.IOException;
-import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
 
 import org.apache.commons.math3.stat.inference.TestUtils;
 
 public class Main {
 
 	public static void main(String[] args) throws IOException, ParseError {
-
-		String[] participants = {
-		/* ENTER FILENAMES HERE */
+		
+		File folder = new File("data");
+		FilenameFilter filter = new FilenameFilter() {
+		    public boolean accept(File dir, String name) {
+		        return name.endsWith(".txt");
+		    }
 		};
+		File[] files = folder.listFiles(filter);
 
-		int trials = participants.length * 5;
+		int trials = files.length * 5;
 
 		double[] time0 = new double[trials];
 		double[] time50 = new double[trials];
@@ -31,7 +35,7 @@ public class Main {
 		int accuracy0i, accuracy50i, accuracy100i, accuracy250i, accuracy500i;
 		accuracy0i = accuracy50i = accuracy100i = accuracy250i = accuracy500i = 0;
 
-		for (String file : participants) {
+		for (File file : files) {
 			Processor processor = new Processor(file);
 			for (TestResults test : processor.tests) {
 				if (test.test > 0) {

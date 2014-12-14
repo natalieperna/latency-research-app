@@ -17,7 +17,7 @@ public class Processor {
 
 	static int[] lags = { 0, 50, 100, 250, 500 };
 
-	Processor(String filename) throws IOException, ParseError {
+	Processor(File filename) throws IOException, ParseError {
 		tests = new ArrayList<TestResults>();
 
 		file = new BufferedReader(new FileReader(filename));

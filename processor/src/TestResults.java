@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
 
 public class TestResults {
 	int test;
