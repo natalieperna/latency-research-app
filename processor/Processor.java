@@ -115,7 +115,3 @@ public class Processor {
 	}
 
 }
-
-class ParseError extends Exception {
-
-}
